@@ -9,7 +9,7 @@
 	<div>
 		<h2 align="center">List of All Shipment</h2>
 	</div>
-	<form method="post" action="save">
+	<form >
 		<table align="center" border="1">
 			<tr>
 				<th>Shipment ID</th>
@@ -21,18 +21,9 @@
 				<th>Operation</th>
 				<th>Link</th>
 			</tr>
-			<tr th:each="shipment:${shipmentTypes}">
-				<td th:text="${shipment.shipmentId}"></td>
-				<td th:text="${shipment.shipmentMode}"></td>
-				<td th:text="${shipment.shipmentCode}"></td>
-				<td th:text="${shipment.enableShipment}"></td>
-				<td th:text="${shipment.shipmentGrade}"></td>
-				<td th:text="${shipment.discription}"></td>
-				<td><a th:href="@{/shipmenttype/delete/{id}(id=${shipment.shipmentId})}">DELETE</a></td>
-				<td><a th:href="@{/shipmenttype/edit/{id}(id=${shipment.shipmentId})}">EDIT</a></td>
-			</tr>				
+					
 		</table>
-		<span th:text="${msg}"></span>
+		
 	</form>
 </body>
 
