@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org/">
+
+<head>
+	<title>UOM Registration</title>
+</head>
+
+<body>
+	<div align="center"><h2>Welcome to UOM Data</h2></div>
+	<form method="post" action="uom-save">
+		<table align="center" border="1">
+			<tr bgcolor="pink">
+				<td>UOM ID</td>
+				<td>UOM type</td>
+				<td>UOM Model</td>
+				<td>Description</td>
+				<td>Operation</td>
+				<td>Link</td>
+			</tr>
+			
+			<tr th:each="uom:${UomData}">
+				<td th:text="${uom.uomId}"></td>
+				<td th:text="${uom.uomType}"></td>
+				<td th:text="${uom.uomModel}"></td>
+				<td th:text="${uom.description}"></td>
+				<td><a href="@{/uom/delete/{id}(id=${uom.uomId})}">DELETE</a></td>
+				<td><a href="@{/uom/edit/{id}(id=${uom.uomId})}">EDIT</a></td>
+			</tr>
+		</table>
+	</form>
+	<span th:text="${msg}"></span>
+</body>
+
+</html>
