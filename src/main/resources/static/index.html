@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org/">
+
+<head>
+	<title>Shipment Registration</title>
+</head>
+
+<body>
+	<div th:text="Welcome"></div>
+	<form method="post" th:action="@{/shipmenttype/save}" th:object="${shipmentType}">
+		<table align="center" >
+			<tr>
+				<td>Shipement Mode</td>
+				<td>:</td>
+				<td><select th:field="*{shipmentMode}">
+						<option value="">--Select--</option>
+						<option value="Air">Air</option>
+						<option value="Truck">Truck</option>
+						<option value="Ship">Ship</option>
+						<option value="Train">Train</option>
+					</select></td>
+			</tr>
+			<tr>
+				<td>Shipment code</td>
+				<td>:</td>
+				<td><input type="text" th:field="*{shipmentCode}" value=""></td>
+			</tr>
+			<tr>
+				<td>Enable Shipment</td>
+				<td>:</td>
+				<td> <select th:field="*{enableShipment}">
+						<option value="">--Select--</option>
+						<option value="yes">Yes</option>
+						<option value="No">No</option>
+
+					</select></td>
+			</tr>
+			<tr>
+				<td>Shipment grade</td>
+				<td>:</td>
+				<td><input type="radio" th:field="*{shipmentGrade}" value="A">A  <input type="radio" th:field="*{shipmentGrade}" value="B">B </td>
+			</tr>
+			<tr>
+				<td>Description</td>
+				<td>:</td>
+				<td><textarea th:field="*{discription}" rows="4" cols="20"></textarea></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="create shipment"></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+	<span th:text="${shipmentMsg}"></span>
+</body>
+
+</html>
